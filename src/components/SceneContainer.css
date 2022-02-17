@@ -24,3 +24,8 @@
   background: #0079c1;
   color: #e4e4e4;
 }
+
+#sceneDiv {
+  height: 100vh;
+  width: 100%
+}
