@@ -1,8 +1,8 @@
+/* eslint-disable testing-library/no-node-access */
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Dev Summit/i);
-  expect(linkElement).toBeInTheDocument();
+  const {container} = render(<App />);
+  expect(container.firstChild).toHaveClass('App');
 });

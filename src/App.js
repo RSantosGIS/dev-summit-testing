@@ -3,7 +3,7 @@ import SceneContainer from './components/SceneContainer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid='AppModule'>
       <SceneContainer />
     </div>
   );

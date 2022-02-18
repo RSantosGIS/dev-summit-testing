@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from 'react';
 import './SceneContainer.css';
 import SceneView from '@arcgis/core/views/SceneView';
 import EsriMap from '@arcgis/core/Map';
-import Grid from '@material-ui/core/Grid';
 
 export default function SceneContainer() {
   const sceneDiv = useRef(null);
@@ -32,7 +31,7 @@ export default function SceneContainer() {
     <>
 
 
-    <div id='sceneDiv' ref={sceneDiv}></div>
+    <div id='sceneDiv' ref={sceneDiv} className='sceneDiv'></div>
 
       {/* <div ref={topBarRef} className='topbar'>
         <button
