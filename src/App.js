@@ -1,5 +1,5 @@
 import './App.css';
-import SceneContainer from './components/SceneContainer';
+import SceneContainer from './SceneContainer';
 
 function App() {
   return (
