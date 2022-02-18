@@ -40,12 +40,29 @@ describe ("Init Utility Unit Tests", () => {
     expect(sceneView).toBeDefined();
   });
 
-  test('Button event listeners toggle active button', () => {
+  test('Set Active Button adds/removes active class', () => {
     render(<TestBtnBarComponent/>);
     let distanceBtn = screen.getByRole('button', {name: /DistanceButton/i});
     let areaBtn = screen.getByRole('button', {name: /AreaButton/i});
     expect(distanceBtn).toBeDefined();
     expect(areaBtn).toBeDefined();
+    
+
+    initializationUtility.setActiveButton(distanceBtn, sceneView);
+    let classNames = distanceBtn.className.split(' ');
+    expect(classNames).toContainEqual('active');
+
+    initializationUtility.setActiveButton(areaBtn, sceneView);
+    classNames = areaBtn.className.split(' ');
+    expect(classNames).toContainEqual('active');
+    classNames = distanceBtn.className.split(' ');
+    expect(classNames).not.toContainEqual('active');
+  });
+
+  test('Button click event listeners toggle active button', () => {
+    render(<TestBtnBarComponent/>);
+    let distanceBtn = screen.getByRole('button', {name: /DistanceButton/i});
+    let areaBtn = screen.getByRole('button', {name: /AreaButton/i});
 
     initializationUtility.initDistanceBtn(sceneView, distanceBtn, areaBtn);
     initializationUtility.initAreaBtn(sceneView, distanceBtn, areaBtn);
