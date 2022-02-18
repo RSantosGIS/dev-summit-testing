@@ -1,5 +1,9 @@
 export default class SceneView {
-    ui = {
-        add(){}
-    };
+    constructor () {
+        this.ui = {
+            add: ()=>{}
+        };
+        this.focus = () =>{};
+    }
+    
 }
