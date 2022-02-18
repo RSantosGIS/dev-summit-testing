@@ -23,7 +23,11 @@ const initializationUtility = {
   initWidgets : (sceneView, topBarRef, distanceBtnRef, areaBtnRef) => {
     // add the toolbar for the measurement widgets
     sceneView.ui.add(topBarRef, 'top-right');
-  
+    initializationUtility.initDistanceBtn(sceneView, distanceBtnRef, areaBtnRef);
+    initializationUtility.initAreaBtn(sceneView, distanceBtnRef, areaBtnRef);
+  },
+
+  initDistanceBtn: (sceneView, distanceBtnRef, areaBtnRef) => {
     //event handler for when the distance button is clicked - toggles activity
     distanceBtnRef.addEventListener("click", (event) => {
       initializationUtility.setActiveWidget(null, sceneView, distanceBtnRef, areaBtnRef);
@@ -33,7 +37,9 @@ const initializationUtility = {
         initializationUtility.setActiveButton(null, sceneView);
       }
     });
-  
+  },
+
+  initAreaBtn: (sceneView, distanceBtnRef, areaBtnRef) => {
     //event handler for when the area button is clicked - toggles activity
     areaBtnRef.addEventListener("click", (event) => {
       initializationUtility.setActiveWidget(null);
@@ -43,10 +49,6 @@ const initializationUtility = {
         initializationUtility.setActiveButton(null,sceneView);
       }
     });
-  
-    
-  
-    
   },
 
   /**
