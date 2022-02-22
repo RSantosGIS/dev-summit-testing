@@ -21,16 +21,17 @@ export default function SceneContainer() {
     <div id='sceneDiv' ref={sceneDiv} className='sceneDiv'></div>
     <div ref={topBarRef} className='topbar'>
       <button
+        aria-label='DistanceButton'
         className="action-button esri-icon-measure-line"
         ref={distanceBtnRef}
         type="button"
         title="Measure distance between two points"
       ></button>
       <button className="action-button esri-icon-measure-area" 
+        aria-label='AreaButton'
         ref ={areaBtnRef}
         type="button" 
-        title="Measure area"
-        aria-label='AreaButton'
+        title="Measure Area"
       ></button>
     </div>
     </>

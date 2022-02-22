@@ -3,6 +3,7 @@ import WebScene from '@arcgis/core/WebScene';
 import DirectLineMeasurement3D from '@arcgis/core/widgets/DirectLineMeasurement3D';
 import AreaMeasurement3D from '@arcgis/core/widgets/AreaMeasurement3D';
 
+var activeWidget = null;
 const initializationUtility = {
   initializeScene: (sceneRef) => {
     // load a webscene
@@ -42,7 +43,7 @@ const initializationUtility = {
   initAreaBtn: (sceneView, distanceBtnRef, areaBtnRef) => {
     //event handler for when the area button is clicked - toggles activity
     areaBtnRef.addEventListener("click", (event) => {
-      initializationUtility.setActiveWidget(null);
+      initializationUtility.setActiveWidget(null, sceneView);
       if (!event.target.classList.contains("active")) {
         initializationUtility.setActiveWidget("area", sceneView, distanceBtnRef, areaBtnRef);
       } else {
@@ -56,7 +57,6 @@ const initializationUtility = {
      * @param {*} type 
      */
    setActiveWidget: (type, sceneView, distanceBtnRef, areaBtnRef)=> {
-    var activeWidget = null;
     switch (type) {
       case "distance":
         activeWidget = new DirectLineMeasurement3D({

@@ -2,6 +2,7 @@
 import initializationUtility from "./initializationUtility";
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import "@testing-library/react/dont-cleanup-after-each";
+import SceneView from "@arcgis/core/views/SceneView";
 
 //test DOM
 function TestBtnBarComponent() {
@@ -27,21 +28,17 @@ function TestBtnBarComponent() {
 
 //COMPONENT UNIT TESTS
 describe ("Init Utility Unit Tests", () => {
-  //variables needed for every test
-  let sceneView = null;
-
-  afterAll(() => {
-    cleanup();
-  });
   
   test('Initialize Scene', () => {
     let {sceneRef} = render(<div id='sceneDiv' className='sceneDiv'></div>);
-    sceneView = initializationUtility.initializeScene(sceneRef);
-    expect(sceneView).toBeDefined();
+    let newSceneView = initializationUtility.initializeScene(sceneRef);
+    expect(newSceneView).toBeDefined();
   });
 
   test('Set Active Button adds/removes active class', () => {
     render(<TestBtnBarComponent/>);
+    let {sceneRef} = render(<div id='sceneDiv' className='sceneDiv'></div>);
+    let sceneView = initializationUtility.initializeScene(sceneRef);
     let distanceBtn = screen.getByRole('button', {name: /DistanceButton/i});
     let areaBtn = screen.getByRole('button', {name: /AreaButton/i});
     expect(distanceBtn).toBeDefined();
@@ -59,8 +56,10 @@ describe ("Init Utility Unit Tests", () => {
     expect(classNames).not.toContainEqual('active');
   });
 
-  test('Button click event listeners toggle active button', () => {
+  test('Button click event listeners toggle active Widget', () => {
     render(<TestBtnBarComponent/>);
+    let {sceneRef} = render(<div id='sceneDiv' className='sceneDiv'></div>);
+    let sceneView = initializationUtility.initializeScene(sceneRef);
     let distanceBtn = screen.getByRole('button', {name: /DistanceButton/i});
     let areaBtn = screen.getByRole('button', {name: /AreaButton/i});
 
