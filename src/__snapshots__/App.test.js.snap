@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App wide integration and snapshot tests Matches snapshot 1`] = `
+<div
+  className="App"
+  data-testid="AppModule"
+>
+  <div
+    className="sceneDiv"
+    id="sceneDiv"
+  />
+  <div
+    className="topbar"
+  >
+    <button
+      aria-label="DistanceButton"
+      className="action-button esri-icon-measure-line"
+      title="Measure distance between two points"
+      type="button"
+    />
+    <button
+      aria-label="AreaButton"
+      className="action-button esri-icon-measure-area"
+      title="Measure Area"
+      type="button"
+    />
+  </div>
+</div>
+`;

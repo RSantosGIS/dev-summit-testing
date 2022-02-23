@@ -1,8 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 import initializationUtility from "./initializationUtility";
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import "@testing-library/react/dont-cleanup-after-each";
-import SceneView from "@arcgis/core/views/SceneView";
+import { render, screen, fireEvent } from '@testing-library/react';
 
 //test DOM
 function TestBtnBarComponent() {
@@ -28,6 +26,14 @@ function TestBtnBarComponent() {
 
 //COMPONENT UNIT TESTS
 describe ("Init Utility Unit Tests", () => {
+
+  beforeAll(() => {
+    console.log("Done once before all tests in this 'Describe' suite.  Use for expensive setup like Async calls or objects that will NEVER be modified by a test");
+  });
+
+  beforeEach(() => {
+    console.log("Done before each test in the suite.  Use for everything else so each test is encapsulated (ex: reset variables used for each test)");
+  });
   
   test('Initialize Scene', () => {
     let {sceneRef} = render(<div id='sceneDiv' className='sceneDiv'></div>);
